@@ -12,12 +12,14 @@ namespace Sew_tranformacion_xml_html
     {
         private static StreamWriter file = new System.IO.StreamWriter(@"C:\Users\2000l\Desktop\pag_web_rutas\index.html");
 
+
         static void Main(string[] args)
         {
+            int counter = 0;
             file.WriteLine("<!DOCTYPE HTML>");
             file.WriteLine("<html lang=\"es\">");
             file.WriteLine("<head>");
-            file.WriteLine("<meta charset=\"UTF - 8\">");
+            file.WriteLine("<meta charset=\"UTF-8\">");
             file.WriteLine("<title>Rutas de avión</title>");
             file.WriteLine("<meta name=\"description\" content=\"Web diseñada para mostrar diferentes rutas aéreas.\">");
             file.WriteLine("<meta name=\"author\" content=\"Luis Fernández Suárez\">");
@@ -25,7 +27,7 @@ namespace Sew_tranformacion_xml_html
             file.WriteLine("</head>");
             file.WriteLine("<body>");
 
-            String nombreArchivoXML = @"C:\Users\2000l\Desktop\3rd_course\SEW\lab\lab2_xml\practica2\aviones.xml";
+            String nombreArchivoXML = @"C:\Users\2000l\Desktop\3rd_course\SEW\lab\lab2_xml\practica2\Ejercicio-2\Tarea-1\aviones.xml";
 
             // XmlReader
             XmlReader lector = XmlReader.Create(nombreArchivoXML);
@@ -49,7 +51,7 @@ namespace Sew_tranformacion_xml_html
                                 }
                                 else if (lector.Name.Equals("tipo_de_ruta"))
                                 {
-                                    file.WriteLine("<p>Tipo de ruta:" + lector.Value +  "</p>");
+                                    file.WriteLine("<p>Tipo de ruta:" + lector.Value + "</p>");
                                 }
                                 else if (lector.Name.Equals("dificultad"))
                                 {
@@ -92,15 +94,16 @@ namespace Sew_tranformacion_xml_html
                         }
                         else if (lector.Name.Equals("referencia"))
                         {
-                            file.Write("<p>Enlace recomendado: <a href=");
+                            file.Write("<p>Enlace recomendado: <a href=\"");
                         }
                         else if (lector.Name.Equals("recomendacion_ruta"))
                         {
                             file.Write("<p>Recomendación de la ruta: ");
                         }
-                        else if (lector.Name.Equals("coordenadas_inicio"))
+                        else if (lector.Name.Equals("coordenadas"))
                         {
-                            file.Write("<p>Coordenadas de inicio: ");
+                            file.WriteLine("<p>Coordenadas: </p>");
+                            file.WriteLine("<ul>");
                         }
                         else if (lector.Name.Equals("hitos"))
                         {
@@ -119,7 +122,7 @@ namespace Sew_tranformacion_xml_html
                         else if (lector.Name.Equals("distancia_hito_anterior"))
                         {
                             lector.MoveToNextAttribute();
-                            file.Write("<p>Distancia respecto al hito anterior en " +lector.Value + ": ");
+                            file.Write("<p>Distancia respecto al hito anterior en " + lector.Value + ": ");
                         }
                         else if (lector.Name.Equals("tiempo_hito_anterior"))
                         {
@@ -129,12 +132,24 @@ namespace Sew_tranformacion_xml_html
                         else if (lector.Name.Equals("img"))
                         {
                             lector.MoveToNextAttribute();
-                            file.Write("<img src=\"" + lector.Value + "\">");
+                            file.Write("<img src=\"" + lector.Value + "\" alt=\">");
                         }
                         else if (lector.Name.Equals("video"))
                         {
                             lector.MoveToNextAttribute();
                             file.Write("<p>Enlace a video: <a href=\"" + lector.Value + "\">");
+                        }
+                        else if (lector.Name.Equals("longitud"))
+                        {
+                            file.Write("<li>Longitud: ");
+                        }
+                        else if (lector.Name.Equals("latitud"))
+                        {
+                            file.Write("<li>Latitud: ");
+                        }
+                        else if (lector.Name.Equals("altitud"))
+                        {
+                            file.Write("<li>Altitud: ");
                         }
                         break;
                     case XmlNodeType.EndElement:
@@ -144,7 +159,7 @@ namespace Sew_tranformacion_xml_html
                         }
                         else if (lector.Name.Equals("referencia"))
                         {
-                            file.WriteLine(lector.Value + "></a></p>");
+                            file.WriteLine(lector.Value + "\"> " + "Referencia número " + ++counter + "</a></p>");
                         }
                         else if (lector.Name.Equals("duracion"))
                         {
@@ -167,9 +182,9 @@ namespace Sew_tranformacion_xml_html
                         {
                             file.WriteLine("</p>");
                         }
-                        else if (lector.Name.Equals("coordenadas_inicio"))
+                        else if (lector.Name.Equals("coordenadas"))
                         {
-                            file.WriteLine("</p>");
+                            file.WriteLine("</ul>");
                         }
                         else if (lector.Name.Equals("descripcion_hito"))
                         {
@@ -185,29 +200,41 @@ namespace Sew_tranformacion_xml_html
                         }
                         else if (lector.Name.Equals("img"))
                         {
-                            file.WriteLine(lector.Value + "</img>");
+                            file.WriteLine(lector.Value + "\"</img>");
                         }
                         else if (lector.Name.Equals("video"))
                         {
                             file.WriteLine(lector.Value + "</a></p>");
                         }
+                        else if (lector.Name.Equals("longitud"))
+                        {
+                            file.Write("</li>");
+                        }
+                        else if (lector.Name.Equals("latitud"))
+                        {
+                            file.Write("</li>");
+                        }
+                        else if (lector.Name.Equals("altitud"))
+                        {
+                            file.Write("</li>");
+                        }
                         break;
                     case XmlNodeType.Text:
-                            file.Write(lector.Value);
+                        file.Write(lector.Value);
                         break;
                 }
 
-                
+
             }
             file.WriteLine("</body>");
             file.WriteLine("</html>");
             file.Close();
-            
+
         }
 
         private static void toP(string name, String value)
         {
-            file.WriteLine("<h1>" + name + ": " +  value + "</h1>");
+            file.WriteLine("<h1>" + name + ": " + value + "</h1>");
         }
 
         public static void toH1(String text)
@@ -215,6 +242,6 @@ namespace Sew_tranformacion_xml_html
             file.WriteLine("<h1>" + text + "</h1>");
         }
 
-        
+
     }
 }

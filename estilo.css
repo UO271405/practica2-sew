@@ -40,6 +40,14 @@ p{
     margin-right: 1.8em;
 }
 
+/*especificidad -> 1*/
+ul{
+    text-align: left;
+    margin-top: 1.25em;
+    margin-bottom: 2.5em;
+    margin-left: 3em;
+    margin-right: 2.5em;
+}
 
   /*especificidad -> 100*/
 img{
