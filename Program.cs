@@ -11,7 +11,7 @@ namespace Sew_tranformacion_xml_html
     class Program
     {
         private static StreamWriter file = new System.IO.StreamWriter(@"C:\Users\2000l\Desktop\pag_web_rutas\index.html");
-
+        
 
         static void Main(string[] args)
         {
@@ -108,12 +108,11 @@ namespace Sew_tranformacion_xml_html
                         else if (lector.Name.Equals("hitos"))
                         {
                             file.WriteLine("<h3>Hitos</h3>");
-                            file.WriteLine("<ul>");
                         }
                         else if (lector.Name.Equals("hito"))
                         {
                             lector.MoveToNextAttribute();
-                            file.WriteLine("<li>" + lector.Value + "</li>");
+                            file.WriteLine("<p><strong>" + lector.Value + "</strong></p>");
                         }
                         else if (lector.Name.Equals("descripcion_hito"))
                         {
@@ -153,11 +152,7 @@ namespace Sew_tranformacion_xml_html
                         }
                         break;
                     case XmlNodeType.EndElement:
-                        if (lector.Name.Equals("hitos"))
-                        {
-                            file.WriteLine("</ul>");
-                        }
-                        else if (lector.Name.Equals("referencia"))
+                        if (lector.Name.Equals("referencia"))
                         {
                             file.WriteLine(lector.Value + "\"> " + "Referencia número " + ++counter + "</a></p>");
                         }
@@ -200,7 +195,7 @@ namespace Sew_tranformacion_xml_html
                         }
                         else if (lector.Name.Equals("img"))
                         {
-                            file.WriteLine(lector.Value + "\"</img>");
+                            file.WriteLine(lector.Value + "\">");
                         }
                         else if (lector.Name.Equals("video"))
                         {
