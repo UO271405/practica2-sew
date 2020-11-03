@@ -1,0 +1,148 @@
+<?xml version ="1.0" encoding ="UTF-8"?>
+<!DOCTYPE rutas [
+<!ELEMENT rutas (ruta+)>
+<!ELEMENT ruta (duracion, agencia, lugar_inicio, direccion_inicio, coordenadas_inicio, referencia+, recomendacion_ruta, hitos)>
+<!ELEMENT duracion (#PCDATA)>
+<!ELEMENT agencia (#PCDATA)>
+<!ELEMENT lugar_inicio (#PCDATA)>
+<!ELEMENT direccion_inicio (#PCDATA)>
+<!ELEMENT coordenadas_inicio (#PCDATA)>
+<!ELEMENT referencia (#PCDATA)>
+<!ELEMENT recomendacion_ruta (#PCDATA)>
+<!ATTLIST duracion unidad CDATA #REQUIRED>
+<!ATTLIST ruta nombre CDATA #REQUIRED
+				tipo_de_ruta CDATA #REQUIRED
+				dificultad CDATA #REQUIRED
+				fecha_inicio NMTOKEN #IMPLIED
+				hora_inicio NMTOKEN #IMPLIED
+				descripcion_ruta CDATA #REQUIRED
+				personas_adecuadas CDATA #REQUIRED>
+
+<!ELEMENT hitos (hito+)>
+<!ELEMENT hito (descripcion_hito, distancia_hito_anterior, tiempo_hito_anterior, img+, video*)>
+<!ELEMENT descripcion_hito (#PCDATA)>
+<!ELEMENT distancia_hito_anterior (#PCDATA)>
+<!ELEMENT tiempo_hito_anterior (#PCDATA)>
+<!ELEMENT img (#PCDATA)>
+<!ELEMENT video (#PCDATA)>
+<!ATTLIST hito nombre_hito CDATA #REQUIRED>
+<!ATTLIST distancia_hito_anterior unidad CDATA #REQUIRED>
+<!ATTLIST tiempo_hito_anterior unidad CDATA #REQUIRED>
+<!ATTLIST img enlace CDATA #REQUIRED>
+<!ATTLIST video enlace CDATA #REQUIRED>
+]> 
+<rutas>
+	<ruta nombre="Ranón - Madrid" tipo_de_ruta="Comercial" dificultad="Dificil" fecha_inicio="2020-11-25" hora_inicio="2020-11-25T20:00:00" descripcion_ruta="Ruta con turbulencias debido al retiterado mal tiempo en Asturias." personas_adecuadas="Jovenes">
+		<duracion unidad="minutos">30</duracion>
+		<agencia>Iberia</agencia>
+		<lugar_inicio>Ranón</lugar_inicio>
+		<direccion_inicio>33459</direccion_inicio>
+		<coordenadas_inicio>43.562437, -6.034367</coordenadas_inicio>
+		<referencia>http://aena.mobi/m/es/aeropuerto-asturias/asturias.html</referencia>
+		<referencia>http://aena.mobi/m/es/aeropuerto-madrid-barajas/index.html</referencia>
+		<referencia>https://es.wikipedia.org/wiki/Madrid</referencia>
+		<recomendacion_ruta>6</recomendacion_ruta>
+		<hitos>
+			<hito nombre_hito="Leon">
+				<descripcion_hito>León es un municipio​ y ciudad española ubicada en el noroeste de la península ibérica.</descripcion_hito>
+				<distancia_hito_anterior unidad="kilometros">179</distancia_hito_anterior>
+				<tiempo_hito_anterior unidad="minutos">15</tiempo_hito_anterior>
+				<img enlace="multimedia/catedral_leon.jpg">Catedral de León</img>
+				<img enlace="multimedia/ciudad_leon.jpg">Ciudad de León</img>
+				<img enlace="multimedia/mapa_leon.jpg">Mapa de León</img>
+				<video enlace="https://www.youtube.com/watch?v=fMcZGPA70Es">Presentacion Leon</video>
+				<video enlace="https://www.youtube.com/watch?v=Yymc32EIa8g">Leon catedral</video>
+				<video enlace="https://www.youtube.com/watch?v=l5nflALRpKQ">Blog Leon</video>
+			</hito>
+			<hito nombre_hito="Valladolid">
+				<descripcion_hito>Valladolid es un municipio y ciudad española situada en el cuadrante noroeste de la península ibérica, capital de la provincia de Valladolid y sede de las Cortes y el Gobierno autonómicos de Castilla y León.</descripcion_hito>
+				<distancia_hito_anterior unidad="kilometros">138</distancia_hito_anterior>
+				<tiempo_hito_anterior unidad="minutos">5</tiempo_hito_anterior>
+				<img enlace="multimedia/valladolid_colon.jpg">Monumento Colón de Valladolid</img>
+				<img enlace="multimedia/valladolid_ciudad.jpg">Ciudad de Valladolid</img>
+				<img enlace="multimedia/mapa_valladolid.jpg">Mapa de Valladolid</img>
+				<video enlace="https://www.youtube.com/watch?v=oJQ-aNSLiOQ">Valladolid guía</video>
+			</hito>
+			<hito nombre_hito="Segovia">
+				<descripcion_hito>Segovia es una ciudad y municipio español en la parte meridional de la comunidad autónoma de Castilla y León, capital de la provincia del mismo nombre.</descripcion_hito>
+				<distancia_hito_anterior unidad="kilometros">116</distancia_hito_anterior>
+				<tiempo_hito_anterior unidad="minutos">3</tiempo_hito_anterior>
+				<img enlace="multimedia/catedral_segovia.jpg">Catedral de Segovia</img>
+				<img enlace="multimedia/ciudad_segovia.jpg">Ciudad de Segovia</img>
+				<img enlace="multimedia/mapa_segovia.jpg">Mapa de Segovia</img>
+				<video enlace="https://www.youtube.com/watch?v=QPx6CtKhTM4">Segovia guía</video>
+			</hito>
+		</hitos>
+	</ruta>
+	
+	<ruta nombre="Barcelona - Londres" tipo_de_ruta="Turística" dificultad="Medio" hora_inicio="2020-12-25T18:00:00" descripcion_ruta="Ruta tranquila con tendencia a tener algunas distracciones por el largo viaje." personas_adecuadas="Todas">
+		<duracion unidad="minutos">150</duracion>
+		<agencia>British Airways</agencia>
+		<lugar_inicio>Barcelona</lugar_inicio>
+		<direccion_inicio>08820</direccion_inicio>
+		<coordenadas_inicio>41.297433, 2.085002</coordenadas_inicio>
+		<referencia>https://es.wikipedia.org/wiki/Aeropuerto_Josep_Tarradellas_Barcelona-El_Prat</referencia>
+		<referencia>https://es.wikipedia.org/wiki/Aeropuerto_de_Londres-Heathrow</referencia>
+		<referencia>https://es.wikipedia.org/wiki/Londres</referencia>
+		<recomendacion_ruta>8</recomendacion_ruta>
+		<hitos>
+			<hito nombre_hito="Burdeos">	
+				<descripcion_hito>Burdeos (en francés, Bordeaux, pronunciado /bɔʁˈdo/; en occitano, Bordèu pronunciado [buɾˈðɛw]) es una ciudad portuaria del sudoeste de Francia.</descripcion_hito>
+				<distancia_hito_anterior unidad="kilometros">637</distancia_hito_anterior>
+				<tiempo_hito_anterior unidad="minutos">45</tiempo_hito_anterior>
+				<img enlace="multimedia/burdeos_plaza_bolsa.jpg">Plaza de la bolsa en Burdeos</img>
+				<img enlace="multimedia/burdeos_ciudad.jpg">Ciudad de Burdeos</img>
+				<video enlace="https://vimeo.com/150275304">Burdeos video ayuntamiento</video>
+			</hito>
+			<hito nombre_hito="Poitiers">
+				<descripcion_hito>Poitiers es una ciudad y comuna situada en la Francia central, prefectura (capital) del departamento de Vienne, en la región de Nueva Aquitania.</descripcion_hito>
+				<distancia_hito_anterior unidad="kilometros">250</distancia_hito_anterior>
+				<tiempo_hito_anterior unidad="minutos">25</tiempo_hito_anterior>
+				<img enlace="multimedia/poitiers_ciudad.jpg">Ciudad de Poitiers</img>
+			</hito>
+			<hito nombre_hito="Dover">
+				<descripcion_hito>Dover , en el condado de Kent, es el mayor puerto del canal de la Mancha en Inglaterra.</descripcion_hito>
+				<distancia_hito_anterior unidad="kilometros">700</distancia_hito_anterior>
+				<tiempo_hito_anterior unidad="minutos">50</tiempo_hito_anterior>
+				<img enlace="multimedia/dover_acantilado.jpg">Acantilado de Dover</img>
+				<img enlace="multimedia/dover_castillo.jpg">Ciudad de Dover</img>
+				<img enlace="multimedia/dover_puerto.jpg">Puerto de Dover</img>
+			</hito>
+		</hitos>
+	</ruta>
+	
+	<ruta nombre="Lisboa - Roma" tipo_de_ruta="Turística" dificultad="Facil" descripcion_ruta="Ruta tranquila." personas_adecuadas="Personas mayores de edad">
+		<duracion unidad="minutos">145</duracion>
+		<agencia>Halcón Viajes</agencia>
+		<lugar_inicio>Lisboa</lugar_inicio>
+		<direccion_inicio>1700-008</direccion_inicio>
+		<coordenadas_inicio>38.774006, -9.132128</coordenadas_inicio>
+		<referencia>https://www.aeroportolisboa.pt/es/lis/home</referencia>
+		<referencia>https://es.wikipedia.org/wiki/Aeropuerto_de_Roma-Ciampino</referencia>
+		<referencia>https://www.romeinformation.it/es/roma-oficina-de-turismo-centro-de-informacion-de-roma/</referencia>
+		<recomendacion_ruta>10</recomendacion_ruta>
+		<hitos>
+			<hito nombre_hito="Madrid">
+				<descripcion_hito>Madrid es un municipio y una ciudad de España. La localidad, con categoría histórica de villa,​ es la capital del Estado10​ y de la Comunidad de Madrid.</descripcion_hito>
+				<distancia_hito_anterior unidad="kilometros">620</distancia_hito_anterior>
+				<tiempo_hito_anterior unidad="minutos">45</tiempo_hito_anterior>
+				<img enlace="multimedia/madrid_parque_del_retiro.jpg">Parque del Retiro en Madrid</img>
+				<img enlace="multimedia/madrid_ciudad.jpg">Ciudad de Madrid</img>
+			</hito>
+			<hito nombre_hito="Valencia">
+				<descripcion_hito>Valencia es un municipio​ y una ciudad de España, capital de la provincia homónima y de la Comunidad Valenciana.</descripcion_hito>
+				<distancia_hito_anterior unidad="kilometros">362</distancia_hito_anterior>
+				<tiempo_hito_anterior unidad="minutos">35</tiempo_hito_anterior>
+				<img enlace="multimedia/valencia_ciudad_artes_ciencias.jpg">Catedral de Valencia</img>
+				<video enlace="https://www.youtube.com/watch?v=iL8wtRoYNLc">Valencia ciudad de las artes y las ciencias video</video>
+			</hito>
+			<hito nombre_hito="Mallorca">
+				<descripcion_hito>Mallorca es una isla española situada en la parte central del archipiélago balear, en el mar Mediterráneo.</descripcion_hito>
+				<distancia_hito_anterior unidad="kilometros">320</distancia_hito_anterior>
+				<tiempo_hito_anterior unidad="minutos">30</tiempo_hito_anterior>
+				<img enlace="multimedia/mallorca_playa.jpg">Catedral de Mallorca</img>
+				<img enlace="multimedia/islas_baleares.png">Islas Baleares</img>
+			</hito>
+		</hitos>
+	</ruta>
+</rutas>
